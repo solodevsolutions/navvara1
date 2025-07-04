@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navvara Migration Solutions | Your Trusted Migration Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-light: #e6f2ff;
+            --dark: #1a1a1a;
+            --gray: #6b7280;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: transparent;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 5%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-text {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        header.scrolled nav ul li a {
+            color: var(--dark);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-light);
+        }
+
+        header.scrolled nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        header.scrolled nav ul li a::after {
+            background-color: var(--primary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        header.scrolled .mobile-menu-btn {
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            opacity: 1 !important;
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            transform: none !important;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+        }
+
+        /* Countries Section */
+        .countries {
+            background-color: var(--light-gray);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .countries-container {
+            display: flex;
+            width: 100%;
+            animation: scrollCountries 25s linear infinite;
+        }
+
+        .countries-container:hover {
+            animation-play-state: paused;
+        }
+
+        .country-card {
+            flex: 0 0 280px;
+            margin-right: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .country-flag {
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .country-flag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+        }
+
+        .country-name {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .country-info {
+            padding: 20px;
+        }
+
+        .country-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Visa Types */
+        .visa-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .visa-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .visa-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .visa-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .visa-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .visa-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: var(--light-gray);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 15px;
+            text-align: center;
+            min-width: 100%;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--gray);
+            position: relative;
+        }
+
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-content::before {
+            top: -15px;
+            left: -10px;
+        }
+
+        .testimonial-content::after {
+            bottom: -25px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Booking Section */
+        .booking-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .booking-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 45%,
+                rgba(255, 255, 255, 0.8) 50%,
+                rgba(255, 255, 255, 0) 55%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .booking-card:hover::before {
+            animation: shine 1.5s ease;
+        }
+
+        .booking-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .booking-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .booking-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .booking-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .contact-text h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 10% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollCountries {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 80px 5%;
+            }
+
+            .visa-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            nav ul li a {
+                color: var(--dark);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .countries-container {
+                animation: scrollCountriesMobile 25s linear infinite;
+            }
+
+            .country-card {
+                flex: 0 0 260px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .visa-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes scrollCountriesMobile {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <span class="logo-text">Navvara Migration</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#countries">Countries</a></li>
+                <li><a href="#visa-types">Visa Types</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#booking">Book Online</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Trusted Partner in Migration & IELTS Success</h1>
+            <p>With over a decade of experience, we've helped thousands of clients achieve their dreams of studying, working, and living abroad.</p>
+            <div class="cta-buttons">
+                <a href="#booking" class="btn btn-primary">Book Free Consultation</a>
+                <a href="#visa-types" class="btn btn-outline">Explore Visa Types</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>Why Choose Navvara?</h2>
+            <p>We combine expert knowledge with personalized service to make your migration journey smooth and successful.</p>
+        </div>
+        <div class="about-cards">
+            <div class="about-card animate">
+                <i class="fas fa-award"></i>
+                <h3>15+ Years Experience</h3>
+                <p>Our team of registered migration agents has been helping clients since 2008 with proven success.</p>
+            </div>
+            <div class="about-card animate">
+                <i class="fas fa-chart-line"></i>
+                <h3>98% Success Rate</h3>
+                <p>Our meticulous approach to applications results in one of the highest approval rates in the industry.</p>
+            </div>
+            <div class="about-card animate">
+                <i class="fas fa-headset"></i>
+                <h3>End-to-End Support</h3>
+                <p>From initial consultation to post-arrival services, we're with you every step of the way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="section countries" id="countries">
+        <div class="section-title">
+            <h2>Popular Destination Countries</h2>
+            <p>We specialize in migration to these top destinations with comprehensive support services.</p>
+        </div>
+        <div class="countries-container">
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1546268060-2592ff93ee24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Australia</h3>
+                </div>
+                <div class="country-info">
+                    <p>Skilled migration, student visas, and family sponsorship programs.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Canada</h3>
+                </div>
+                <div class="country-info">
+                    <p>Express Entry, Provincial Nominee Programs, and study permits.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');">
+                    <h3 class="country-name">United Kingdom</h3>
+                </div>
+                <div class="country-info">
+                    <p>Skilled Worker Visa, Student Visa, and Ancestry Visa options.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1610563161479-74d0fdf90bd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');">
+                    <h3 class="country-name">Singapore</h3>
+                </div>
+                <div class="country-info">
+                    <p>Employment Pass, Student Pass, and Permanent Residence schemes.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Malaysia</h3>
+                </div>
+                <div class="country-info">
+                    <p>Malaysia My Second Home program and work visa options.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1549972353-a16e9d3feecd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Ireland</h3>
+                </div>
+                <div class="country-info">
+                    <p>Critical Skills Employment Permit and student visa pathways.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1551867633-194f125bddfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Hungary</h3>
+                </div>
+                <div class="country-info">
+                    <p>Study visas and work permits for international applicants.</p>
+                </div>
+            </div>
+            <!-- Duplicate for seamless looping -->
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1546268060-2592ff93ee24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Australia</h3>
+                </div>
+                <div class="country-info">
+                    <p>Skilled migration, student visas, and family sponsorship programs.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Canada</h3>
+                </div>
+                <div class="country-info">
+                    <p>Express Entry, Provincial Nominee Programs, and study permits.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');">
+                    <h3 class="country-name">United Kingdom</h3>
+                </div>
+                <div class="country-info">
+                    <p>Skilled Worker Visa, Student Visa, and Ancestry Visa options.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1610563161479-74d0fdf90bd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');">
+                    <h3 class="country-name">Singapore</h3>
+                </div>
+                <div class="country-info">
+                    <p>Employment Pass, Student Pass, and Permanent Residence schemes.</p>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="country-flag" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <h3 class="country-name">Malaysia</h3>
+                </div>
+                <div class="country-info">
+                    <p>Malaysia My Second Home program and work visa options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visa Types Section -->
+    <section class="section" id="visa-types">
+        <div class="section-title">
+            <h2>Our Visa Services</h2>
+            <p>Comprehensive visa solutions tailored to your specific needs and circumstances.</p>
+        </div>
+        <div class="visa-cards">
+            <!-- First Row -->
+            <div class="visa-card animate">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Student Visa</h3>
+                <p>Pursue world-class education at top universities with our expert guidance on student visa applications.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="visa-card animate">
+                <i class="fas fa-briefcase"></i>
+                <h3>Work Visa</h3>
+                <p>Secure employment opportunities abroad with our work visa assistance and job search support.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="visa-card animate">
+                <i class="fas fa-heart"></i>
+                <h3>Partner Visa</h3>
+                <p>Reunite with your loved ones through our partner and family visa services.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="visa-card animate">
+                <i class="fas fa-building"></i>
+                <h3>Business Visa</h3>
+                <p>Expand your business internationally with investor and entrepreneur visa options.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="visa-card animate">
+                <i class="fas fa-user-tie"></i>
+                <h3>Skilled Migration</h3>
+                <p>Permanent residency pathways for skilled professionals through points-based systems.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="visa-card animate">
+                <i class="fas fa-plane"></i>
+                <h3>Visitor Visa</h3>
+                <p>Tourism, family visits, or business trips - we handle all visitor visa applications.</p>
+                <a href="#" class="btn btn-primary btn-small">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements" id="achievements">
+        <div class="section-title">
+            <h2>Our Achievements</h2>
+            <p>Numbers that speak volumes about our expertise and commitment to client success.</p>
+        </div>
+        <div class="stats">
+            <div class="stat-item animate">
+                <div class="stat-number" data-count="5000">0</div>
+                <div class="stat-text">Successful Visa Applications</div>
+            </div>
+            <div class="stat-item animate">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-text">IELTS Success Stories</div>
+            </div>
+            <div class="stat-item animate">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-text">Years of Experience</div>
+            </div>
+            <div class="stat-item animate">
+                <div class="stat-number" data-count="98">0</div>
+                <div class="stat-text">% Success Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section" id="booking">
+        <div class="section-title">
+            <h2>Book Our Services</h2>
+            <p>Start your migration journey today with our professional services.</p>
+        </div>
+        <div class="booking-cards">
+            <div class="booking-card animate">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Free Consultation</h3>
+                <p>Book a no-obligation consultation with our migration experts to assess your options.</p>
+                <a href="#" class="btn btn-primary">Book Now</a>
+            </div>
+            <div class="booking-card animate">
+                <i class="fas fa-book-open"></i>
+                <h3>IELTS Courses & Support</h3>
+                <p>Prepare for your IELTS exam with our expert tutors and comprehensive materials.</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="booking-card animate">
+                <i class="fas fa-edit"></i>
+                <h3>IELTS Exam Booking</h3>
+                <p>We can help you book your IELTS test at the most convenient location and date.</p>
+                <a href="#" class="btn btn-primary">Book Exam</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>Hear from people who have successfully migrated with our assistance.</p>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonials-container" id="testimonialsContainer">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Navvara made my dream of studying in Canada come true. Their guidance through the entire process was exceptional. I couldn't have done it without them!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Priya K.</h4>
+                            <p>Student Visa to Canada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The team at Navvara was incredibly professional and knowledgeable. They helped me secure my Australian skilled visa in record time. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Rahul S.</h4>
+                            <p>Skilled Visa to Australia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "After being rejected twice, Navvara helped me successfully apply for a UK work visa. Their attention to detail made all the difference."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Ananya P.</h4>
+                            <p>Work Visa to UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The IELTS preparation course was excellent. I improved my score by 1.5 bands in just 6 weeks with their help!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Vikram J.</h4>
+                            <p>IELTS Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active" data-index="0"></div>
+                <div class="testimonial-dot" data-index="1"></div>
+                <div class="testimonial-dot" data-index="2"></div>
+                <div class="testimonial-dot" data-index="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team for personalized migration advice and support.</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animate">
+                <h3>Our Office</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>123 Migration Street, Suite 500<br>Mumbai, India 400001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+912212345678">+91 22 1234 5678</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@navvara.com">info@navvara.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-text">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form animate">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" class="form-control">
+                            <option value="">Select a service</option>
+                            <option value="student-visa">Student Visa</option>
+                            <option value="work-visa">Work Visa</option>
+                            <option value="partner-visa">Partner Visa</option>
+                            <option value="business-visa">Business Visa</option>
+                            <option value="skilled-migration">Skilled Migration</option>
+                            <option value="ielts">IELTS Preparation</option>
+                            <option value="consultation">Free Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Navvara</h3>
+                <p>Navvara Migration Solutions is a leading migration consultancy with offices in India, Australia, and Canada, helping clients achieve their migration dreams since 2008.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#countries">Destination Countries</a></li>
+                    <li><a href="#visa-types">Visa Services</a></li>
+                    <li><a href="#achievements">Our Success</a></li>
+                    <li><a href="#testimonials">Client Stories</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Visa Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Student Visa</a></li>
+                    <li><a href="#">Work Visa</a></li>
+                    <li><a href="#">Partner Visa</a></li>
+                    <li><a href="#">Business Visa</a></li>
+                    <li><a href="#">Skilled Migration</a></li>
+                    <li><a href="#">Visitor Visa</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>IELTS Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">IELTS Preparation</a></li>
+                    <li><a href="#">IELTS Mock Tests</a></li>
+                    <li><a href="#">IELTS Exam Booking</a></li>
+                    <li><a href="#">IELTS Coaching</a></li>
+                    <li><a href="#">IELTS Success Tips</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Navvara Migration Solutions Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on Scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Counter Animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const startCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                
+                if (element.getAttribute('data-count') === '98') {
+                    element.textContent = Math.floor(current) + '%';
+                } else {
+                    element.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
+                }
+            }, 16);
+        };
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        statNumbers.forEach(number => {
+            counterObserver.observe(number);
+        });
+
+        // Testimonial Slider
+        const testimonialsContainer = document.getElementById('testimonialsContainer');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialsContainer.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            testimonialDots[index].classList.add('active');
+            
+            currentTestimonial = index;
+        }
+
+        // Add click event to dots
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showTestimonial(parseInt(dot.getAttribute('data-index')));
+            });
+        });
+
+        // Auto slide
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+    </script>
+</body>
+</html>
